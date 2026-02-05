@@ -1,4 +1,5 @@
 import PageHeader from "../components/PageHeader";
+import ItemList from "./item-list";
 
 export default function Page() {
   return (
@@ -9,7 +10,10 @@ export default function Page() {
         bgColor="bg-green-300 dark:bg-green-800"
         homeLink="Home"
       />
-      <h1>Under construction!</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-heading md:text-4xl mb-5 bg">
+        Shopping List
+      </h1>
+      <ItemList/>
     </main>
   );
 }
