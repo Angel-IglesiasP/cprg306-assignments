@@ -20,6 +20,10 @@ const navItems = [
     title: "Week 5",
     href: "week-5",
   },
+    {
+    title: "Week 5 Challenge",
+    href: "week-5-challenge",
+  },
   {
     title: "Week 6",
     href: "week-6",
