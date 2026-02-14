@@ -1,4 +1,5 @@
 import PageHeader from "../components/PageHeader";
+import NewItem from "./newItem";
 
 export default function Page() {
   return (
@@ -9,7 +10,7 @@ export default function Page() {
         bgColor="bg-green-300 dark:bg-green-800"
         homeLink="Home"
       />
-      <h1>Under construction!</h1>
+      <NewItem/>
     </main>
   );
 }
