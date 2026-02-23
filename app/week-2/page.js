@@ -7,7 +7,7 @@ export default function Page() {
       <PageHeader
         title="CPRG 306 assignments"
         description="Week 2: Working with links, tailwind styles and basic components!"
-        bgColor="bg-green-300 dark:bg-green-800"
+        bgColor="bg-header-bg"
         homeLink="Home"
       />
       <StudentInfo/>

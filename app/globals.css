@@ -3,6 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Header base */
+  --header-bg: #b8d7eb;      
+  --header-fg: #3c3737;     
+  --card-bg: #ffffff;
+  --card-fg: #171717;
+
+  /* Header details (light) */
+  --header-title: #0b3b61;   /*text title*/
+  --header-muted: #0b3b61;   /*text for p*/
+  --header-cta-bg: #1d4ed8;  /*background for button*/
+  --header-cta-fg: #ffffff;  /*text for button*/
+  --header-cta-hover: #1e40af; /*hover for button*/
+  --header-toggle-bg: #f3f4f6; 
+  --header-toggle-fg: #111827; 
 }
 
 @theme inline {
@@ -10,11 +25,26 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Expose header + card tokens */
+  --color-header-bg: var(--header-bg);
+  --color-header-fg: var(--header-fg);
+  --color-card-bg: var(--card-bg);
+  --color-card-fg: var(--card-fg);
+
+  /* Expose header detail tokens */
+  --color-header-title: var(--header-title);
+  --color-header-muted: var(--header-muted);
+  --color-header-cta-bg: var(--header-cta-bg);
+  --color-header-cta-fg: var(--header-cta-fg);
+  --color-header-cta-hover: var(--header-cta-hover);
+  --color-header-toggle-bg: var(--header-toggle-bg);
+  --color-header-toggle-fg: var(--header-toggle-fg);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #c91a1a;
     --foreground: #ededed;
   }
 }
@@ -23,4 +53,25 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Next-themes: class-based dark override */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* Header base (dark) */
+  --header-bg: #282e3f;      /* blue-800-like */
+  --header-fg: #f0f3f7;      /* near-white */
+  --card-bg: #0b0f19;
+  --card-fg: #e5e7eb;
+
+  /* Header details (dark) */
+  --header-title: #e5f0ff;   /* near-white */
+  --header-muted: #94a3b8;   /* slate-400 */
+  --header-cta-bg: #2563eb;  /* blue-600 */
+  --header-cta-fg: #ffffff;  /* white text */
+  --header-cta-hover: #1d4ed8; /* blue-700 */
+  --header-toggle-bg: #1f2937; /* gray-800 */
+  --header-toggle-fg: #e5e7eb; /* gray-200 */
 }
