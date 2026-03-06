@@ -1,102 +1,73 @@
 "use client";
-
 import { useState } from "react";
+import items from "./items.json";
 
-export default function NewItem() {
-  // I need to initialize the useStates first using a constat to set the initial value and the setvalue.
-  const [itemName, setItemName] = useState("");
-  const [itemQuantity, setItemQuantity] = useState(1);
-  const [itemCategory, setItemCategory] = useState("produce");
+export default function NewItem()
+{
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [category, setCategory] = useState("produce");
+  const categories = [...new Set(items.map((item) => item.category))];
 
-  // 
-  const handleSubmit = (event) => {
-    event.preventDefault(); 
-
-    //this builds an object from the values
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const item = {
-      name: itemName,
-      quantity: itemQuantity,
-      category: itemCategory,
+      name: name,
+      quantity: quantity,
+      category: category,
     };
 
-    //prints the item in the console as a check 
     console.log(item);
+    alert(`Added ${quantity} ${name} in ${category}`)
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
+  }
 
-    alert(
-      `Added: ${item.name}, quantity: ${item.quantity}, category: ${item.category}`
-    );
+  return(
+    <form onSubmit={handleSubmit} className=" max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-gray-700 shadow-md dark:bg-zinc-600 dark:shadow-gray-500 dark:shadow-md justify-center">
+      <label htmlFor="name">Item Name:</label>
+      <input
+      type="text"
+      value={name}
+      id="name"
+      name="name"
+      onChange={(e) => setName(e.target.value)}
+      required
+      className="w-full p-2 rounded-md border-2 border-gray-600 text-black dark:text-[#ffff] dark:bg-gray-600 dark:border-amber-50 h-10 mt-2"/>
+      
+      <div className="flex gap-2 justify-between">
+        <div className="flex flex-col w-auto">
 
-    // Resets the form back to the initial state
-    setItemName("");
-    setItemQuantity(1);
-    setItemCategory("produce");
-  };
-
-  return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-120 bg-gray-200 p-6 rounded-md shadow-md space-y-4"
-    >
-      {/* Name Field */}
-      <div>
-        <label className="block font-semibold mb-2">Name</label>
+        <label htmlFor="quantity" className="mt-2">Quantity:</label>
         <input
-          type="text"
-          value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
-          required
-          className="w-full p-2 rounded-md border"
-          placeholder="e.g., Bread"
+        type="number"
+        min="1"
+        max="99"
+        value={quantity}
+        id="quantity"
+        name="quantity"
+        onChange={(e) => setQuantity(Number(e.target.value))}
+        className="p-2 rounded-md border-2 border-gray-600 text-black mt-2 dark:text-[#ffff] dark:bg-gray-600 dark:border-amber-50 h-10"
         />
-      </div>
-
-      {/* Quantity + Category Row */}
-      <div className="flex gap-3">
-        {/* Quantity Field */}
-        <div className="flex-1">
-          <label className="block font-semibold mb-2">Quantity</label>
-          <input
-            type="number"
-            min={1}
-            max={99}
-            value={itemQuantity}
-            onChange={(e) => setItemQuantity(Number(e.target.value))}
-            required
-            className="w-full p-2 rounded-md border"
-          />
         </div>
-
-        {/* Category Field */}
-        <div className="flex-1">
-          <label className="block font-semibold mb-2">Category</label>
+        
+        <div className="flex flex-col w-full">
+          <label htmlFor="category" className="mt-2">Category:</label>
           <select
-            value={itemCategory}
-            onChange={(e) => setItemCategory(e.target.value)}
-            required
-            className="w-full p-2.5 rounded-md border"
-          >
-            <option value="produce">Produce</option>
-            <option value="dairy">Dairy</option>
-            <option value="bakery">Bakery</option>
-            <option value="meat">Meat</option>
-            <option value="frozen foods">Frozen Foods</option>
-            <option value="canned goods">Canned Goods</option>
-            <option value="dry goods">Dry Goods</option>
-            <option value="beverages">Beverages</option>
-            <option value="snacks">Snacks</option>
-            <option value="household">Household</option>
-            <option value="other">Other</option>
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="p-2 rounded-md border-2 border-gray-600 text-black mt-2 dark:text-[#ffff] dark:bg-gray-600 dark:border-amber-50 h-10">
+          {categories.map((category) => (
+            <option key={category} value={category} >
+            {category}
+            </option>))}
           </select>
         </div>
+
       </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white font-bold p-2 rounded-md hover:bg-blue-700 transition mt-3"
-      >
-        +
-      </button>
+      <button type="submit" className="bg-blue-500 text-white px-6 py-2 mt-5 rounded-md hover:bg-blue-300 hover:text-blue-950 dark:bg-blue-300 dark:hover:bg-blue-600 dark:hover:text-blue-100 shadow-gray-700 shadow-md">+</button>
     </form>
   );
 }
