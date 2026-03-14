@@ -6,12 +6,15 @@ import Item from "./item";
 export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
 
-  const sortedItems = [...items].sort((a, b) =>
-    a[sortBy].localeCompare(b[sortBy])
-  );
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortBy === "quantity") {
+      return b[sortBy] - a[sortBy];
+    }
+    return a[sortBy].localeCompare(b[sortBy])
+});
 
   const baseButtonClasses =
-    "px-4 py-2 rounded-md text-sm font-medium transition-colors";
+    "px-4 py-2 rounded-md text-sm font-medium transition-colors bg-red";
 
   return (
     <section className="w-full max-w-2xl">
@@ -37,6 +40,17 @@ export default function ItemList({ items }) {
           }`}
         >
           Sort by Category
+        </button>
+        <button
+          type="button"
+          onClick={() => setSortBy("quantity")}
+          className={`${baseButtonClasses} ${
+            sortBy === "quantity"
+              ? "bg-gray-700 text-white"
+              : "bg-gray-200 text-gray-800"
+          }`}
+        >
+          Sort by Quantity
         </button>
       </div>
 
