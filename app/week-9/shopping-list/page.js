@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import PageHeader from "../components/PageHeader";
-import itemsData from "./items.json";
-import ItemList from "./item-list";
-import NewItem from "./new-item";
-import MealIdeas from "./MealIdeas";
+import PageHeader from "../../components/PageHeader";
+import itemsData from "../items.json";
+import ItemList from "../item-list";
+import NewItem from "../new-item";
+import MealIdeas from "../MealIdeas";
 
 export default function Page() {
   const [selectedItemName, setSelectedItemName] = useState("");
@@ -27,14 +27,14 @@ export default function Page() {
 
 
   return (
-    <main className="flex flex-col items-center justify-between text-center bg-gray-50 dark:bg-neutral-900 rounded-lg shadow-blue-950 ">
+    <main className="flex flex-col items-center justify-between text-center">
       <PageHeader
         title="CPRG 306 assignments"
-        description="Week 8 calling APIs!"
+        description="A compendium of all the demos and labs we have completed week by week"
         bgColor="bg-green-300 dark:bg-green-800"
         homeLink="Home"
       />
-      <h1 className="text-3xl font-bold tracking-tight text-heading md:text-4xl mb-5 mt-5">
+      <h1 className="text-3xl font-bold tracking-tight text-heading md:text-4xl mb-5">
         Shopping List
       </h1>
         <div className="flex gap-8 items-start w-full justify-center">

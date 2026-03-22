@@ -16,11 +16,11 @@ export default function Page() {
     <main className="flex flex-col items-center justify-between text-center">
       <PageHeader
         title="CPRG 306 assignments"
-        description="A compendium of all the demos and labs we have completed week by week"
+        description="Week 7! cleaner state management "
         bgColor="bg-green-300 dark:bg-green-800"
         homeLink="Home"
       />
-      <h1 className="text-3xl font-bold tracking-tight text-heading md:text-4xl mb-5">
+      <h1 className="text-3xl font-bold tracking-tight text-heading md:text-4xl mb-5 mt-5">
         Shopping List
       </h1>
       <NewItem onAddItem={handleAddItem} />

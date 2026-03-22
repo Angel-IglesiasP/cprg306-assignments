@@ -12,9 +12,9 @@ export default function PageHeader({
   bgColor = "bg-blue-300 dark:bg-blue-700",
 }) {
   return (
-    <header className={`py-10 px-6 mb-10 ${bgColor} rounded-b-md w-screen `}>
+    <header className={`py-10 px-6 ${bgColor} rounded-b-md w-screen `}>
       <h1 className="text-center text-3xl font-bold mb-4">{title}</h1>
-      <p className="text-xl text-center">{description}</p>
+      <p className="text-2xl text-center font-bold">{description}</p>
       <Link href="/" className={HomeButton}>
         {homeLink}
       </Link>
