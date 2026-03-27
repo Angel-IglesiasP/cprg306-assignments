@@ -12,12 +12,6 @@ export default function Page() {
         homeLink="Home"
       />
       <DemoNav />
-      <Link
-        href="/week-7"
-        className="mt-4 mb-10 rounded-md bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-500"
-      >
-        Go to Week 7
-      </Link>
     </main>
   );
 }
